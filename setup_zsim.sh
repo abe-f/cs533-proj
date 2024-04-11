@@ -64,3 +64,9 @@ make clean all
 cd ../../../..
 
 ./build/opt/zsim cs533/large.cfg
+
+sudo apt-install python3-pip -y
+pip install h5py
+
+cd cs533
+python3 analyze_data.py
