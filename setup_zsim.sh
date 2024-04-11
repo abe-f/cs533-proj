@@ -61,6 +61,6 @@ make clean all
 #cd *page*
 #make
 
-cd ../../..
+cd ../../../..
 
 ./build/opt/zsim cs533/large.cfg
