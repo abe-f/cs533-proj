@@ -41,14 +41,14 @@ cd cs533
 mkdir benchmarks
 cd benchmarks
 
-git clone https://github.com/graphbig/graphBIG.git
+git clone https://github.com/abe-f/graphBIG.git
 
 #graphBIG
 # add this to make files with flags:
 # -Wno-format-truncation
 # put brackets around for loops to fix errors
 
-cd dataset
+cd graphBIG/dataset
 mkdir large
 cd large
 # copy gen_data.py into folder
