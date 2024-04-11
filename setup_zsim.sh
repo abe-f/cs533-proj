@@ -57,8 +57,10 @@ python3 gen_data.py
 cd ../..
 
 cd benchmark
-cd *page*
-make
+make clean all
+#cd *page*
+#make
+
+cd ../../..
 
 ./build/opt/zsim cs533/large.cfg
-
