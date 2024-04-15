@@ -19,3 +19,6 @@ def run_command(path):
 
 pool = Pool()
 pool.map(run_command, paths)
+
+
+# ./zsim/build/opt/zsim cs533/large.cfg --outputDir .
