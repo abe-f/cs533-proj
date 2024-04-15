@@ -38,7 +38,7 @@ for config_folder in config_folders:
         os.mkdir(f"{top_dir}/experiments/{experiment}/{config_folder}/data")
     os.chdir(f"{top_dir}/experiments/{experiment}/{config_folder}/data")
 
-    # Change dir into the data folder and run the jobs
+    # Change dir into the data folder and run the job
     print(f"Changing working directory to: {top_dir}/experiments/{experiment}/{config_folder}/data")
     command = f"../../../../zsim/build/opt/zsim ../{config_folder}.cfg"
     print(f"Executing command: {command}")
