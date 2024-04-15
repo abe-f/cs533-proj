@@ -15,58 +15,41 @@ export HDF5PATH=/usr/lib/x86_64-linux-gnu/hdf5/serial
 sudo apt-get install -y scons
 sudo apt-get install -y libelf-dev
 
-# Now, I needed to run "echo 0 > /proc/sys/kernel/yama/ptrace_scope", but
-# could only do it using sudo -i (may be different for others)
-# This can be done like this:
-# sudo -i
-# sudo echo 0 > /proc/sys/kernel/yama/ptrace_scope
-
-# Maybe this will work
+# idk what this does but i hope it's not bad
 echo "0"|sudo tee /proc/sys/kernel/yama/ptrace_scope
 
 git clone https://github.com/abe-f/zsim.git
 
-# Build
+# Build zsim
 cd zsim
 scons -j16
 
 # Verify build with test program
 ./build/opt/zsim tests/simple.cfg
 
-mkdir cs533
-cd cs533
-
-# Copy large.cfg from computer into cs533 folder
-
+cd ..
 mkdir benchmarks
 cd benchmarks
 
+# Clone graphBIG benchmark suite
 git clone https://github.com/abe-f/graphBIG.git
 
-#graphBIG
-# add this to make files with flags:
-# -Wno-format-truncation
-# put brackets around for loops to fix errors
-
-cd graphBIG/dataset
-mkdir large
-cd large
-# copy gen_data.py into folder
+# Run script that will download large twitter graph data
+cd graphBIG/dataset/large
 python3 gen_data.py
 
+# Build graphBIG
 cd ../..
-
 cd benchmark
 make clean all
-#cd *page*
-#make
 
-cd ../../../..
-
-./build/opt/zsim cs533/large.cfg
-
-sudo apt-install python3-pip -y
+# Install python libraries
+sudo apt install python3-pip -y
 pip install h5py
 
-cd cs533
-python3 analyze_data.py
+#cd ../../../..
+
+#./build/opt/zsim cs533/large.cfg
+
+#cd cs533
+#python3 analyze_data.py
