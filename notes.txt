@@ -1,0 +1,3 @@
+Reducing the cache capacity to <512MB doesn't really make sense, as there is 512MiB of L2 in the system, and (I believe?) ZSim models an inclusive LLC.
+
+Plan is to run a sweep from .75GiB to 2GiB LLC size (by varying the number of ways)
