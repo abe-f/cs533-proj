@@ -47,7 +47,7 @@ make clean all
 sudo apt install python3-pip -y
 pip install h5py
 
-cd ../../../../..
+cd ../../../..
 
 #./build/opt/zsim cs533/large.cfg
 
