@@ -4,3 +4,13 @@ Plan is to run a sweep from .75GiB to 2GiB LLC size (by varying the number of wa
 
 1. Just increase the number of ways by 10%, which is the best case scenario (but realistic for single-threaded applications).
 2. Collect statistics about (1) the number of sharers for all cache lines, and (2) number of sets in the cache that have all cache lines with 0 or 1 sharers
+
+With zsim, we can demarcate regions of interest with these functions:
+zsim_roi_begin();
+zsim_roi_end();
+
+We get these from zsim_hooks.h, and 
+
+#include "zsim_hooks.h"
+
+within the benchmark

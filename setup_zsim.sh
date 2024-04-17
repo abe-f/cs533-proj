@@ -22,7 +22,7 @@ git clone https://github.com/abe-f/zsim.git
 
 # Build zsim
 cd zsim
-scons -j16
+scons -j16 -p
 
 # Verify build with test program
 ./build/opt/zsim tests/simple.cfg
@@ -47,7 +47,7 @@ make clean all
 sudo apt install python3-pip -y
 pip install h5py
 
-cd ../../../..
+cd ../../../
 
 #./build/opt/zsim cs533/large.cfg
 
