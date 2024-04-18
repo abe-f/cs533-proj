@@ -22,8 +22,12 @@ SSSP (Single Source Shortest Path)
     ./sssp -f /dataset/twitter_graph/twitter.el
 PR (PageRank)
     ./pr -f /dataset/twitter_graph/twitter.el
+    - note: iteration time is 14s.
 BC (Betweenness Center)
-    ./bc -f /dataset/twitter_graph/twitter.el
+    ./bc -f /dataset/twitter_graph/twitter.el -n 1
+    - note: iteration time is 5 seconds.
 TC (Triangle Count) (need to use -sf for graph input)
     ./tc -sf /dataset/twitter_graph/twitter.el
     - note: one iteration of tc takes 100 minutes native on a 32-core machine. Maybe skip this for simulation, or find a smaller graph.
+
+python3 run_sequential.py &> run_script_out.log &
