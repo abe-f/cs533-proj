@@ -31,17 +31,21 @@ cd ..
 mkdir benchmarks
 cd benchmarks
 
-# Clone graphBIG benchmark suite
-git clone https://github.com/abe-f/graphBIG.git
+## Clone graphBIG benchmark suite
+#git clone https://github.com/abe-f/graphBIG.git
+## Run script that will download large twitter graph data
+#cd graphBIG/dataset/large
+#python3 gen_data.py
+## Build graphBIG
+#cd ../..
+#cd benchmark
+#make clean all
 
-# Run script that will download large twitter graph data
-cd graphBIG/dataset/large
-python3 gen_data.py
-
-# Build graphBIG
-cd ../..
-cd benchmark
-make clean all
+# Clone GAP Benchmark Suite
+git clone https://github.com/abe-f/gapbs.git
+cd gapbs
+make
+cd ..
 
 # Install python libraries
 sudo apt install python3-pip -y

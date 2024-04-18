@@ -14,3 +14,16 @@ We get these from zsim_hooks.h, and
 #include "zsim_hooks.h"
 
 within the benchmark
+
+GAPBS Benchmarks:
+BFS (Breadth First Search)
+    ./bfs -f /dataset/twitter_graph/twitter.el
+SSSP (Single Source Shortest Path)
+    ./sssp -f /dataset/twitter_graph/twitter.el
+PR (PageRank)
+    ./pr -f /dataset/twitter_graph/twitter.el
+BC (Betweenness Center)
+    ./bc -f /dataset/twitter_graph/twitter.el
+TC (Triangle Count) (need to use -sf for graph input)
+    ./tc -sf /dataset/twitter_graph/twitter.el
+    - note: one iteration of tc takes 100 minutes native on a 32-core machine. Maybe skip this for simulation, or find a smaller graph.
