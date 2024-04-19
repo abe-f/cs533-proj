@@ -26,6 +26,8 @@ if (not os.path.exists(f"experiments/{experiment}")):
     exit(0)
 
 config_folders = os.listdir(f"experiments/{experiment}")
+config_folders.sort()
+print(f"config_folders = {config_folders}")
 proc_dict = {}
 for config_folder in config_folders:
     # Make data folder in the config folder and cd into it

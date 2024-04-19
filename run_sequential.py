@@ -26,6 +26,8 @@ if (not os.path.exists(f"experiments/{experiment}")):
     exit(0)
 
 config_folders = os.listdir(f"experiments/{experiment}")
+config_folders.sort()
+print(f"config_folders = {config_folders}")
 for config_folder in config_folders:
     # Make data folder in the config folder and cd into it
     # If it already exists, delete it (can change this in future)
@@ -41,8 +43,10 @@ for config_folder in config_folders:
     print(f"Changing working directory to: {top_dir}/experiments/{experiment}/{config_folder}/data")
     command = f"../../../../zsim/build/opt/zsim ../{config_folder}.cfg"
     print(f"Executing command: {command}")
+    """
     proc = subprocess.Popen(command,  shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
     while (proc.poll() is None):
         time.sleep(10)
+    """
 
 print("All tests finished")

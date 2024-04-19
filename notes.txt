@@ -28,6 +28,7 @@ BC (Betweenness Center)
     - note: iteration time is 5 seconds.
 TC (Triangle Count) (need to use -sf for graph input)
     ./tc -sf /dataset/twitter_graph/twitter.el
-    - note: one iteration of tc takes 100 minutes native on a 32-core machine. Maybe skip this for simulation, or find a smaller graph.
+    - note: iteration time is 100 minutes (native on a 32-core machine). Maybe skip this for simulation, or find a smaller graph.
 
-python3 run_sequential.py &> run_script_out.log &
+python3 run_sequential.py -u &> run_script_out.log &
+python3 run_parallel.py -u &> run_script_out.log &
