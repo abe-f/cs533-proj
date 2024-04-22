@@ -3,6 +3,7 @@ import subprocess
 import time
 import glob
 import shutil
+import sys 
 
 # This script runs zsim jobs in parallel.
 # - The directory format for your experiments that this script expects is:
@@ -44,7 +45,8 @@ for config_folder in config_folders:
     print(f"Changing working directory to: {top_dir}/experiments/{experiment}/{config_folder}/data")
     command = f"../../../../zsim/build/opt/zsim ../{config_folder}.cfg"
     print(f"Executing command: {command}")
-    proc_dict[f"{config_folder}"] = subprocess.Popen(command,  shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+    proc_dict[f"{config_folder}"] = subprocess.Popen(command,  shell=True)
+    sys.stdout.flush()
 
 while (bool(proc_dict.copy())):
     for config in proc_dict.copy().keys():

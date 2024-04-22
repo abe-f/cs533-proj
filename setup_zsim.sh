@@ -45,12 +45,15 @@ cd benchmarks
 git clone https://github.com/abe-f/gapbs.git
 cd gapbs
 make
+export OMP_NUM_THREADS=256
 cd ..
 
 # Install python libraries
 sudo apt install python3-pip -y
 pip install h5py
-
+pip install readable_number
+pip install matplotlib
+pip install seaborn
 cd ../../../
 
 #./build/opt/zsim cs533/large.cfg
