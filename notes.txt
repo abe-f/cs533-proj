@@ -37,3 +37,19 @@ killall "bc" # to kill processes
 
 On vscode, just try running the ipynb file and install everything it tells you to
 
+I believe that statsPhaseInterval is the number of phases per period stats dump. You can see how many phases were simulated with the 'phase' stat.
+
+f["stats"]["root"] in python is an ndarray. You can see the indices with dset.dtype.names.
+
+export OMP_NUM_THREADS=256 to change number of threads available for openmp
+
+
+Stat we want:
+For limited ptr cache with 8 lim ptr:
+    Periodically, loop through all the sets in the cache, and count the number of sets with 1 or fewer sharers for each line. Store this in a 32b number.
+
+For full bit-vector cache (256 bits per dir entry):
+    Can dump 256 buckets, where there is one bucket per sharer number
+
+Can motivate the idea with a 2D axis: one dimension is increasing or decreasing the number of directory entries, capped at 1X, and the
+other dimension is the number of sharers. OR a 3D axis, where the other dimension is the cache capacity. Our solution gets the best of all worlds.

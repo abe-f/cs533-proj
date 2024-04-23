@@ -54,6 +54,8 @@ pip install h5py
 pip install readable_number
 pip install matplotlib
 pip install seaborn
+pip install pandas
+
 cd ../../../
 
 #./build/opt/zsim cs533/large.cfg
