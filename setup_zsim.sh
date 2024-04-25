@@ -45,8 +45,13 @@ cd benchmarks
 git clone https://github.com/abe-f/gapbs.git
 cd gapbs
 make
+./converter -g 16 -k 16 -e synth_tiny.el
+./converter -g 18 -k 16 -e synth_small.el
+./converter -g 20 -k 16 -e synth_medium.el
+./converter -g 24 -k 16 -e synth_large.el
+
 export OMP_NUM_THREADS=256
-cd ..
+cd ../..
 
 # Install python libraries
 sudo apt install python3-pip -y
@@ -55,8 +60,6 @@ pip install readable_number
 pip install matplotlib
 pip install seaborn
 pip install pandas
-
-cd ../../../
 
 #./build/opt/zsim cs533/large.cfg
 
