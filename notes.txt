@@ -52,4 +52,46 @@ For full bit-vector cache (256 bits per dir entry):
     Can dump 256 buckets, where there is one bucket per sharer number
 
 Can motivate the idea with a 2D axis: one dimension is increasing or decreasing the number of directory entries, capped at 1X, and the
-other dimension is the number of sharers. OR a 3D axis, where the other dimension is the cache capacity. Our solution gets the best of all worlds.
+other dimension is the number of sharers. OR a 3D axis, where the other dimension is the cache capacity. Our solution gets the best of all worlds: while architects still need to size these, any direction benefits all applications
+
+CC : GlobAlloc
+    uint64_t processAccess(const MemReq& req, int32_t lineId, uint64_t startCycle, CacheArray* data_array, uint64_t* getDoneCycle = nullptr) = 0;
+
+MESIBOTTOMCC : GlobAlloc
+    uint64_t processAccess(Address lineAddr, uint32_t lineId, AccessType type, uint64_t cycle, uint32_t srcId, uint32_t flags);
+
+MESITOPCC : GlobAlloc
+    uint64_t processAccess(Address lineAddr, uint32_t lineId, AccessType type, uint32_t childId, bool haveExclusive, MESIState* childState, bool* inducedWriteback, uint64_t cycle, uint32_t srcId, uint32_t flags, CacheArray* data_array);
+
+MESICC : CC
+    uint64_t processAccess(const MemReq& req, int32_t lineId, uint64_t startCycle, CacheArray* array, uint64_t* getDoneCycle = nullptr);
+
+MESITerminalCC : CC
+    uint64_t processAccess(const MemReq& req, int32_t lineId, uint64_t startCycle, CacheArray* array, uint64_t* getDoneCycle = nullptr)
+
+Cache::access -> MESICC->processAccess, which then calls MESIBOTTOMCC->processAccess then MESITOPCC->processAccess
+
+Need to add any additiona CacheArray function to:
+    SetAssocArray
+    ZArray
+    IdealLRUPartArray
+    IdealLRUArray
+
+How can single-threaded programs benefit from 
+
+To build spec:
+cd /mnt # wherever spec iso is mounted
+# To Mount iso, do mount -t iso9660 -o ro,exec,loop cpu2017.iso /mnt
+# may need sudo for this
+./install.sh -d /users/af28/cs533-proj/benchmarks/spec_cpu2017
+cd spec_cpu2017
+source shrc
+# Possible commands
+runcpu --config=try1 --action=build 505.mcf_r
+
+# intrate here will run all _r (rate) benchmarks - replace with benchmark name to just run one
+runcpu --config=try1 --size=ref --copies=256 --noreportable --iterations=1 intrate
+
+FAQ: https://www.spec.org/cpu2017/Docs/faq.html#Build.05
+runcpu docs: https://www.spec.org/cpu2017/Docs/runcpu.html#basepeak
+setup guide: https://www.spec.org/cpu2017/Docs/install-guide-unix.html#appendix1
