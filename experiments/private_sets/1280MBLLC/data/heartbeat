@@ -1,9 +1,0 @@
-Running on: node-0.af28-203211.chipletcoherence-pg0.clemson.cloudlab.us
-Start time: Sat Apr 20 16:30:58 2024
-Heartbeat time: Sat Apr 20 20:20:43 2024
-Stats since start:
- 2983 phases
- 298300000 cycles
- 21639 cycles/s
-Stats since last heartbeat (2s):
- 0 cycles/s

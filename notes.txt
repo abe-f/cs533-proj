@@ -32,8 +32,9 @@ TC (Triangle Count) (need to use -sf for graph input)
 
 python3 run_sequential.py -u &> run_script_out.log &
 python3 run_parallel.py -u &> run_script_out.log &
-
-killall "bc" # to kill processes
+nohup python3 run_parallel.py -u &> run_script_out.log &
+killall "bc" # to kill the children
+killall -s SIGKILL -e 'cc'
 
 On vscode, just try running the ipynb file and install everything it tells you to
 

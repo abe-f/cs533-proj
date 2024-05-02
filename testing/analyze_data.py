@@ -19,8 +19,18 @@ dset = f["stats"]["root"]
 print(dset.shape)
 print(type(dset))
 print(dset.dtype.names)
-print(dset['l1d'].dtype.names)
-print(dset['l1d']['fhGETS'][:, 0])
+print(dset['l3'].dtype.names)
+#print(dset['l3']['profNumReclaimedSets'][:, 0])
+
+print(np.sum(dset['l3']['profNumReclaimedSets'], 1)) # get the stat summed for all banks at each phase
+# calculate num sets
+# cache_size = 1073741824
+# num_lines = 1073741824/64 = 16777216
+# num_sets = 16777216/16 = 1048576
+# num_sets_per_bank = 4096
+
+
+
 #print(type(np.indices(dset[0])))
 #print(type(dset[0]))
 
