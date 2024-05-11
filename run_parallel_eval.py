@@ -22,14 +22,14 @@ top_dir = os.getcwd()
 
 # The top-level keys here are the different experiments.
 # The value for those keys is another dictionary, that contains the benchmark names and commands
-graph_dataset = "synth_large.el"
+graph_dataset = "synth_small.el"
 
 runs = {"eval" : {
     'bc' : f"../../../../benchmarks/gapbs/bc     -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
-    'cc' : f"../../../../benchmarks/gapbs/cc     -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
-    'pr' : f"../../../../benchmarks/gapbs/pr     -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
-    'sssp' : f"../../../../benchmarks/gapbs/sssp -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
-    'bfs' : f"../../../../benchmarks/gapbs/bfs   -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
+    #'cc' : f"../../../../benchmarks/gapbs/cc     -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
+    #'pr' : f"../../../../benchmarks/gapbs/pr     -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
+    #'sssp' : f"../../../../benchmarks/gapbs/sssp -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
+    #'bfs' : f"../../../../benchmarks/gapbs/bfs   -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
     #'tc' : f"../../../../benchmarks/gapbs/tc     -s -f ../../../../benchmarks/gapbs/{graph_dataset} -n 1",
 }}
 

@@ -33,6 +33,7 @@ TC (Triangle Count) (need to use -sf for graph input)
 python3 run_sequential.py -u &> run_script_out.log &
 python3 run_parallel.py -u &> run_script_out.log &
 nohup python3 run_parallel.py -u &> run_script_out.log &
+nohup python3 run_parallel_eval.py -u &> eval_bc_retry.log &
 killall "bc" # to kill the children
 killall -s SIGKILL -e 'cc'
 
